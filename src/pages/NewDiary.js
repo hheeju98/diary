@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { onUserStateChange } from "../api/firebase";
 import Input from "../components/Input";
+import Greeting from "../components/Greeting";
 
 export default function NewDiary() {
   const [user, setUser] = useState();
@@ -11,7 +12,7 @@ export default function NewDiary() {
 
   return (
     <>
-      <div>{user && <h2>안녕하세요!</h2>}</div>
+      <div>{user && <Greeting user={user} />}</div>
       {user && <Input />}
     </>
   );
