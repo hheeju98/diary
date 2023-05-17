@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
 import NewDiary from "./pages/NewDiary";
 
-function App() {
+export default function App() {
   return (
     <div>
       <Navbar />
@@ -9,5 +9,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
