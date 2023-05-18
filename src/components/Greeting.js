@@ -1,5 +1,4 @@
 import React from "react";
-import { onUserStateChange } from "../api/firebase";
 
 export default function Greeting({ user: { displayName } }) {
   return (

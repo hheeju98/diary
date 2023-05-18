@@ -8,12 +8,18 @@ import {
 import Error from "./pages/Error";
 import App from "./App";
 import ReactDOM from "react-dom/client";
+import Input from "./components/Input";
+import Detail from "./pages/Detail";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <Error />,
+    children: [
+      { index: true, path: "/new", element: <Input /> },
+      { path: "/detail/:id", element: <Detail /> },
+    ],
   },
 ]);
 
