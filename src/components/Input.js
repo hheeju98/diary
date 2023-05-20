@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar";
 
 export default function Input() {
   const [title, setTitle] = useState("");
@@ -35,20 +36,20 @@ export default function Input() {
       content: content,
     };
     handleAddPost(newPost);
-    setTitle("");
     navigate("/");
   };
   return (
     <div>
+      <Navbar />
       <h1>글쓰기</h1>
       <form onSubmit={handleSubmit}>
         <label>
           제목:
           <input
             type="text"
-            placeholder="글 제목"
+            placeholder="제목"
             value={title}
-            onChange={(event) => setTitle(event.target.value)}
+            onChange={handleTitleChange}
           />
         </label>
         <br />

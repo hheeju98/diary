@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -15,17 +16,11 @@ export default function Home() {
     setPosts(savedPosts);
   }, []);
 
-  const handleAddPost = (newPost) => {
-    const updatedPosts = [...posts, newPost];
-    setPosts(updatedPosts);
-    localStorage.setItem("posts", JSON.stringify(updatedPosts));
-  };
-
   return (
     <div>
       {user &&
-        posts.map((post, index) => (
-          <Link key={index} to={`/detail/${index}`}>
+        posts.map((post) => (
+          <Link key={post.id} to={`/detail/${post.id}`}>
             <div>{post.title.slice(0, 20)}</div>
           </Link>
         ))}
