@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
-import { v4 as uuidv4 } from "uuid";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);

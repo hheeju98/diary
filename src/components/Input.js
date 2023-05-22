@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Input() {
   const [title, setTitle] = useState("");
@@ -31,7 +32,7 @@ export default function Input() {
     setIsSaving(true);
 
     const newPost = {
-      id: Date.now(),
+      id: uuidv4(),
       title: title,
       content: content,
     };
