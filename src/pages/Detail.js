@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Detail({ match }) {
+export default function Detail() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
@@ -20,6 +20,7 @@ export default function Detail({ match }) {
     <div>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
+      <p>날짜: {post.date}</p>
     </div>
   );
 }
