@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
+import Greeting from "../components/Greeting";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -29,12 +30,20 @@ export default function Home() {
   // 총 페이지 수 계산
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
+  const truncateTitle = (title, maxLength) => {
+    if (title.length <= maxLength) {
+      return title;
+    }
+    return title.slice(0, maxLength) + "...";
+  };
+
   return (
     <div>
+      {user && <Greeting user={user} />}
       {user &&
         currentPosts.map((post) => (
           <Link key={post.id} to={`/detail/${post.id}`}>
-            <div>{post.title.slice(0, 20)}</div>
+            <div>{truncateTitle(post.title, 10)}</div>
           </Link>
         ))}
 
