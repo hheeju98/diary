@@ -36,6 +36,7 @@ export default function Detail() {
       <p>{post.content}</p>
       <p>날짜: {post.date}</p>
       <button onClick={confirmDelete}>삭제</button>
+      <button onClick={() => navigate(`/edit/${id}`)}>수정</button>
     </div>
   );
 }

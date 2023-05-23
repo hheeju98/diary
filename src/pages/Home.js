@@ -45,17 +45,18 @@ export default function Home() {
       )}
 
       <div>
-        {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-          (pageNumber) => (
-            <button
-              key={pageNumber}
-              onClick={() => handlePageChange(pageNumber)}
-              disabled={pageNumber === currentPage}
-            >
-              {pageNumber}
-            </button>
-          )
-        )}
+        {user &&
+          Array.from({ length: totalPages }, (_, index) => index + 1).map(
+            (pageNumber) => (
+              <button
+                key={pageNumber}
+                onClick={() => handlePageChange(pageNumber)}
+                disabled={pageNumber === currentPage}
+              >
+                {pageNumber}
+              </button>
+            )
+          )}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import App from "./App";
 import ReactDOM from "react-dom/client";
 import Input from "./components/Input";
 import Detail from "./pages/Detail";
+import Edit from "./pages/Edit";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
   },
   { path: "/new", element: <Input /> },
   { path: "/detail/:id", element: <Detail /> },
+  { path: "/edit/:id", element: <Edit /> },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
