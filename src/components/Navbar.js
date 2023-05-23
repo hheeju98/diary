@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { login, logout, onUserStateChange } from "./api/firebase";
-import User from "./components/User";
+import { login, logout, onUserStateChange } from "../api/firebase";
+import User from "./User";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [user, setUser] = useState();
@@ -10,7 +11,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header>
+    <header className="navbar_header">
       {user && <User user={user} />}
       {!user && <button onClick={login}>Login</button>}
       {user && <button onClick={logout}>Logout</button>}

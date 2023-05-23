@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../Navbar";
+import Navbar from "../components/Navbar";
 
 export default function Edit() {
   const { id } = useParams();
