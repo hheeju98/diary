@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
 import Greeting from "../components/Greeting";
 
@@ -36,6 +36,10 @@ export default function Home() {
     }
     return title.slice(0, maxLength) + "...";
   };
+
+  if (!user) {
+    return <Navigate to="./login" />;
+  }
 
   return (
     <div>

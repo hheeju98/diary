@@ -1,0 +1,32 @@
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.greeting {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40) infinite;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background-color: black;
+  animation: blink 1s infinite;
+}
+.greeting-text {
+  font-size: 50px;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
