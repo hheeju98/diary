@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
 import Greeting from "../components/Greeting";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 10;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    onUserStateChange(setUser);
-  }, []);
+    onUserStateChange((user) => {
+      setUser(user);
+      if (!user) {
+        navigate("/login"); // 사용자가 로그아웃하면 '/login' 페이지로 이동
+      }
+    });
+  }, [navigate]);
 
   useEffect(() => {
     const savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
@@ -37,12 +44,9 @@ export default function Home() {
     return title.slice(0, maxLength) + "...";
   };
 
-  if (!user) {
-    return <Navigate to="./login" />;
-  }
-
   return (
     <div>
+      <Navbar />
       {user && <Greeting user={user} />}
       {user &&
         currentPosts.map((post) => (

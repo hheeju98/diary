@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+import { onUserStateChange } from "../api/firebase";
 
 export default function Login() {
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onUserStateChange(setUser);
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/home");
+    }
+  }, [user, navigate]);
+
+  if (user) {
+    return null;
+  }
   return (
     <>
       <Navbar />

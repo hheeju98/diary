@@ -13,7 +13,13 @@ export default function Navbar() {
   return (
     <header className="navbar_header">
       {user && <User user={user} />}
-      {!user && <button onClick={login}>Login</button>}
+      <div className="login_btn_wrap">
+        {!user && (
+          <button onClick={login} className="login_btn">
+            Login
+          </button>
+        )}
+      </div>
       {user && <button onClick={logout}>Logout</button>}
     </header>
   );
