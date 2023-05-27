@@ -22,7 +22,7 @@ export default function Login() {
     return null;
   }
   return (
-    <>
+    <div className="greeting-box">
       <Navbar />
       <div className="greeting">
         <span className="greeting-text">
@@ -30,6 +30,6 @@ export default function Login() {
         </span>
         <span className="cursor"></span>
       </div>
-    </>
+    </div>
   );
 }

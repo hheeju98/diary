@@ -4,11 +4,28 @@
   height: 50px;
 }
 
-.navbar_header {
-  background-color: darkgray;
-  height: 55px;
+.profile_img_box {
+  display: flex;
+  padding-left: 1800px;
+  padding-top: 7px;
 }
 
+.user_name {
+  display: flex;
+  padding-left: 1700px;
+  color: black;
+}
+.navbar_header {
+  background-color: black;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.login_btn_box {
+  padding: 20px;
+}
 .login_btn {
   background: white;
   color: black;
@@ -23,8 +40,35 @@
   font-size: 13px;
   border: 0.5px solid rgb(208, 211, 215);
   color: rgb(66, 67, 68);
+  left: 10px;
 }
 
 .login_btn_wrap {
-  padding: 7px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logout_btn_wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 20px;
+}
+
+.logout_btn {
+  background: white;
+  color: black;
+  width: 150px;
+  height: 40px;
+  padding: 7px 0px 7px 0px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  border: 0.5px solid rgb(208, 211, 215);
+  color: rgb(66, 67, 68);
+  left: 170px;
 }

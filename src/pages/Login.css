@@ -12,21 +12,33 @@
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(40) infinite;
+  padding-top: 300px;
+  padding-left: 540px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cursor {
   display: inline-block;
   width: 2px;
   height: 50px;
-  background-color: black;
+  background-color: white;
   animation: blink 1s infinite;
 }
+
 .greeting-text {
   font-size: 50px;
+  color: white;
 }
 
 @keyframes blink {
   50% {
     opacity: 0;
   }
+}
+
+.greeting-box {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
 }

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { onUserStateChange } from "../api/firebase";
 import Greeting from "../components/Greeting";
 import Navbar from "../components/Navbar";
+import "./Home.css";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
