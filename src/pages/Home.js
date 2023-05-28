@@ -71,7 +71,7 @@ export default function Home() {
                   key={pageNumber}
                   onClick={() => handlePageChange(pageNumber)}
                   disabled={pageNumber === currentPage}
-                  className={pageNumber === currentPage ? "active" : ""}
+                  className="page-button"
                 >
                   {pageNumber}
                 </button>
