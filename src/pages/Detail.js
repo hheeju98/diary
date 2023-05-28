@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "./Detail.css";
 
 export default function Detail() {
   const { id } = useParams();
@@ -34,13 +35,15 @@ export default function Detail() {
   }
 
   return (
-    <div>
+    <div className="container">
       <h1>{post.title}</h1>
-      <p>{post.content}</p>
-      <p>날짜: {post.date}</p>
-      <button onClick={handleGoHome}>홈으로</button>
-      <button onClick={confirmDelete}>삭제</button>
-      <button onClick={() => navigate(`/edit/${id}`)}>수정</button>
+      <h4>{post.content}</h4>
+      <p className="date">날짜: {post.date}</p>
+      <div className="button-container">
+        <button onClick={handleGoHome}>홈으로</button>
+        <button onClick={confirmDelete}>삭제</button>
+        <button onClick={() => navigate(`/edit/${id}`)}>수정</button>
+      </div>
     </div>
   );
 }

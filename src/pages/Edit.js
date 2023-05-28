@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-
+import "./Edit.css";
 export default function Edit() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -50,8 +49,7 @@ export default function Edit() {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div className="container">
       <h1>글 수정</h1>
       <form onSubmit={handleSubmit}>
         <label>

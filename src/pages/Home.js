@@ -46,36 +46,39 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <>
       <Navbar />
-      {user && <Greeting user={user} />}
-      {user &&
-        currentPosts.map((post) => (
-          <Link key={post.id} to={`/detail/${post.id}`}>
-            <div>{truncateTitle(post.title, 10)}</div>
-          </Link>
-        ))}
-
-      {user && (
-        <Link to="/new">
-          <button>글쓰기</button>
-        </Link>
-      )}
-
-      <div>
+      <div className="home-container">
+        {user && <Greeting user={user} />}
         {user &&
-          Array.from({ length: totalPages }, (_, index) => index + 1).map(
-            (pageNumber) => (
-              <button
-                key={pageNumber}
-                onClick={() => handlePageChange(pageNumber)}
-                disabled={pageNumber === currentPage}
-              >
-                {pageNumber}
-              </button>
-            )
-          )}
+          currentPosts.map((post) => (
+            <Link key={post.id} to={`/detail/${post.id}`} className="post-link">
+              <div>{truncateTitle(post.title, 10)}</div>
+            </Link>
+          ))}
+
+        {user && (
+          <Link to="/new" className="new-post-link">
+            <button className="new-post-button">글쓰기</button>
+          </Link>
+        )}
+
+        <div className="pagination">
+          {user &&
+            Array.from({ length: totalPages }, (_, index) => index + 1).map(
+              (pageNumber) => (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  disabled={pageNumber === currentPage}
+                  className={pageNumber === currentPage ? "active" : ""}
+                >
+                  {pageNumber}
+                </button>
+              )
+            )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

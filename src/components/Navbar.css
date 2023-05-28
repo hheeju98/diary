@@ -6,14 +6,12 @@
 
 .profile_img_box {
   display: flex;
-  padding-left: 1800px;
-  padding-top: 7px;
+  padding-left: 1770px;
 }
 
 .user_name {
-  display: flex;
-  padding-left: 1700px;
-  color: black;
+  color: white;
+  padding-left: 7px;
 }
 .navbar_header {
   background-color: black;
