@@ -9,13 +9,13 @@ export default function Detail() {
 
   useEffect(() => {
     const savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
-    const selectedPost = savedPosts.find((post) => post.id === id);
+    const selectedPost = savedPosts.find((post) => post.id.toString() === id);
     setPost(selectedPost);
   }, [id]);
 
   const handleDeletePost = () => {
     const savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
-    const updatedPosts = savedPosts.filter((post) => post.id !== id);
+    const updatedPosts = savedPosts.filter((post) => post.id.toString() !== id);
     localStorage.setItem("posts", JSON.stringify(updatedPosts));
     navigate("/");
   };

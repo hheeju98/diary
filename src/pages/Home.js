@@ -23,7 +23,29 @@ export default function Home() {
 
   useEffect(() => {
     const savedPosts = JSON.parse(localStorage.getItem("posts")) || [];
-    setPosts(savedPosts);
+    const defaultPosts = [
+      {
+        id: 1,
+        title: "기본 포스트 1",
+        content: "기본 포스트 1의 내용입니다.",
+      },
+      {
+        id: 2,
+        title: "기본 포스트 2",
+        content: "기본 포스트 2의 내용입니다.",
+      },
+      {
+        id: 3,
+        title: "기본 포스트 3",
+        content: "기본 포스트 3의 내용입니다.",
+      },
+    ];
+    if (savedPosts.length === 0) {
+      setPosts(defaultPosts);
+      localStorage.setItem("posts", JSON.stringify(defaultPosts));
+    } else {
+      setPosts(savedPosts);
+    }
   }, []);
 
   const handlePageChange = (pageNumber) => {
